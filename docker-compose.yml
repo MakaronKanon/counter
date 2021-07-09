@@ -4,4 +4,6 @@ services:
     build:
       dockerfile: backend.dockerfile
       context: ./app
+    ports:
+      - "80:80"
 
