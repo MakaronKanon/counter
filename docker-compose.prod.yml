@@ -27,6 +27,12 @@ services:
       - traefik.http.routers.api.tls=true
       - traefik.http.routers.api.entrypoints=https
       - traefik.http.routers.api.tls.certresolver=le
+  backend:
+    labels:
+      - traefik.http.routers.counter.tls=true
+      - traefik.http.routers.counter.entrypoints=https
+      - traefik.http.routers.counter.tls.certresolver=le
+
 volumes:
   # Create a volume to store the certificates, there is a constraint to make sure
   # Traefik is always deployed to the same Docker node with the same volume containing
