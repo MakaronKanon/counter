@@ -12,6 +12,8 @@ services:
       - --log.level=DEBUG
 
   backend:
+    # Listen for code changes
+    command: /start-reload.sh
     volumes:
-      # Live mount code to get instant feedback
+      # Live mount to make code update live in container
       - ./app/app:/app
