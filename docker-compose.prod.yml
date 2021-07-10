@@ -18,6 +18,8 @@ services:
       - --certificatesresolvers.le.acme.storage=/certificates/acme.json
       # # Use the TLS Challenge for Let's Encrypt
       - --certificatesresolvers.le.acme.tlschallenge=true
+    ports:
+      - "443:443"
     volumes:
       # Mount the volume to store the certificates
       - traefik-public-certificates:/certificates
