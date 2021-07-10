@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   reverse-proxy:
-    command: # Need to have all command, since the original is replaced
+    command:
       # Use docker as provider
       - --providers.docker
       # Do not expose all Docker services, only the ones explicitly exposed
