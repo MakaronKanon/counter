@@ -16,4 +16,4 @@ services:
     command: /start-reload.sh
     volumes:
       # Live mount to make code update live in container
-      - ./app/app:/app
+      - ./app:/app

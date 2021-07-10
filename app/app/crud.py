@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 
-import models, schemas
+from . import models, schemas
 
 def get_counter(db: Session, counter_id: int):
     return db.query(models.Counter).filter(models.Counter.id == counter_id).first()
