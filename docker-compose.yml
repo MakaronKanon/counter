@@ -19,7 +19,7 @@ services:
       - traefik.http.routers.api.rule=Host(`traefik.${DOMAIN_NAME}`)
       - traefik.http.routers.api.service=api@internal
       - traefik.http.routers.api.middlewares=auth
-      - traefik.http.middlewares.auth.basicauth.users=root:$$apr1$$wZL2wZJW$$Zn0PBdeSMhy/e8ribfsFe1
+      - traefik.http.middlewares.auth.basicauth.users=${TRAEFIK_API_USER}
 
   backend:
     build:
