@@ -5,3 +5,7 @@ services:
       # More verbose log messages
       - --log.level=DEBUG
 
+  backend:
+    volumes:
+      # Livo mount code to get instant feedback
+      - ./app/app:/app
