@@ -21,12 +21,28 @@ services:
       - traefik.http.routers.api.middlewares=auth
       - traefik.http.middlewares.auth.basicauth.users=${TRAEFIK_API_USER}
 
+  db:
+    image: postgres:13.3
+    volumes:
+      - app-db-data:/var/lib/postgresql/data/pgdata
+    env_file:
+      - .env
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata
+
   backend:
+    depends_on:
+      - db
     build:
       dockerfile: backend.dockerfile
       context: ./app
+    env_file:
+      - .env
     labels:
       - traefik.enable=true
       - traefik.http.routers.counter.rule=Host(`api.${DOMAIN_NAME}`)
       - traefik.http.services.counter.loadbalancer.server.port=80
+volumes:
+  app-db-data:
+
 
