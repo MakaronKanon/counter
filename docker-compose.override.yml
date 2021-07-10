@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  reverse-proxy:
+    command:
+      # More verbose log messages
+      - --log.level=DEBUG
+
