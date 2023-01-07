@@ -2,6 +2,8 @@
 
 pkgs.dockerTools.buildImage {
   name = "counter";
+  tag = "latest";
+
   copyToRoot = pkgs.buildEnv {
     name = "image-root";
     paths = [ main ];
